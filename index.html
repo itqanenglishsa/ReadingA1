@@ -19,8 +19,10 @@
     <header class="main-header">
       <div class="header-content">
         <!-- Official Itqan English Logo -->
-       <div class="logo-container" id="logo-home">
-  <img src="./30-Day English Reading Challenge _ إتقان English_files/logo.png" alt="إتقان ENGLISH" class="site-logo">
+        <div class="logo-container" id="logo-home">
+  <a href="#" class="logo-link">
+    <img src="logo.png" alt="إتقان English" class="site-logo" width="150">
+  </a>
 </div>
 
         <!-- Navigation Tabs -->
@@ -32,40 +34,39 @@
           <button class="nav-btn" id="tab-wallet">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line><path d="M16 14h2v2h-2z"></path></svg>
             <span>كلماتي المحفوظة</span>
-            <span class="badge" id="wallet-count">3</span>
+            <span class="badge" id="wallet-count">0</span>
           </button>
           <button class="nav-btn" id="tab-achievements">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path><path d="M12 2a6 6 0 0 1 6 6v1H6V8a6 6 0 0 1 6-6z"></path></svg>
             <span>الأوسمة والإنجازات</span>
-            <span class="badge badge-gold" id="badges-count">3/8</span>
+            <span class="badge badge-gold" id="badges-count">0/8</span>
           </button>
           <button class="nav-btn focus-trigger-btn" id="tab-focus-mode" title="فتح القراءة بملء الشاشة بدون مشتتات">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
             <span>وضع ملء الشاشة</span>
           </button>
-        <!-- زر إعادة بدء الدورة -->
-    <button class="nav-btn" id="btn-reset-course" onclick="resetCourse()" title="إعادة بدء الدورة من جديد ومسح التقدم">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
-      <span>إعادة البدء</span>
-    </button>
-  </nav>
+        </nav>
 
         <!-- Streak & Progress Summary -->
         <div class="header-stats">
           <div class="stat-item xp-badge" id="header-xp-badge" title="نقاط الخبرة XP">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-xp"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <span id="header-xp-count">965</span> XP
+            <span id="header-xp-count">0</span> XP
           </div>
           <div class="stat-item streak-badge" title="سلسلة الأيام المتتالية">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-streak"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
             <span id="streak-count">0</span> أيام
           </div>
+          <button class="stat-item reset-icon-badge reset-course-btn" id="btn-reset-course" type="button" title="إعادة بدء الدورة والتقدم من الصفر">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+            <span>إعادة بدء الدورة</span>
+          </button>
           <div class="progress-ring-container">
             <div class="progress-text-compact">
-              <span id="progress-percent">3%</span> مكتمل
+              <span id="progress-percent">0%</span> مكتمل
             </div>
             <div class="progress-bar-mini">
-              <div class="progress-bar-fill" id="header-progress-bar" style="width: 3%;"></div>
+              <div class="progress-bar-fill" id="header-progress-bar" style="width: 0%;"></div>
             </div>
           </div>
         </div>
@@ -80,10 +81,16 @@
         <div class="challenge-layout">
           
           <!-- LEFT SIDEBAR: 30-Day Grid/List Navigation -->
-          <aside class="days-sidebar">
-            <div class="sidebar-header">
-              <h2>منهج الـ 30 يوماً</h2>
-              <p class="sidebar-subtitle">المستوى المبتدئ (A1) - قصص الكلمات</p>
+          <aside class="days-sidebar" id="days-sidebar-aside">
+            <div class="sidebar-header" id="sidebar-header-toggle">
+              <div class="sidebar-header-text">
+                <h2>منهج الـ 30 يوماً</h2>
+                <p class="sidebar-subtitle">المستوى المبتدئ (A1) - قصص الكلمات</p>
+              </div>
+              <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" type="button" aria-label="توسيع أو إغلاق قائمة الأيام">
+                <span class="active-day-label" id="mobile-active-day-label">اليوم 01</span>
+                <svg class="toggle-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+              </button>
             </div>
             <div class="days-list" id="days-navigation-container"><button class="day-nav-item active " id="sidebar-day-1">
       <div class="day-status-indicator">
@@ -103,9 +110,9 @@
         <div class="day-item-title">My Family at Home (عائلتي في المنزل)</div>
       </div>
       <span class="day-level-tag">A1</span>
-    </button><button class="day-nav-item  completed" id="sidebar-day-3">
+    </button><button class="day-nav-item  " id="sidebar-day-3">
       <div class="day-status-indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="status-icon-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
       </div>
       <div class="day-item-meta">
         <div class="day-item-num">اليوم 03</div>
@@ -638,7 +645,7 @@
             <div class="wallet-stats">
               <div class="wallet-stat-card">
                 <span class="label">إجمالي الكلمات المحفوظة</span>
-                <span class="value" id="wallet-total-count">3</span>
+                <span class="value" id="wallet-total-count">0</span>
               </div>
               <button class="action-btn-danger" id="btn-clear-wallet">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
@@ -648,7 +655,7 @@
           </div>
 
           <!-- Empty Wallet State -->
-          <div class="empty-wallet-state hidden" id="empty-wallet-view">
+          <div class="empty-wallet-state" id="empty-wallet-view">
             <div class="empty-icon-wrapper">
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10M6 10h10M6 14h10"></path></svg>
             </div>
@@ -658,7 +665,7 @@
           </div>
 
           <!-- Wallet Grid View -->
-          <div class="wallet-container" id="wallet-items-grid-view">
+          <div class="wallet-container hidden" id="wallet-items-grid-view">
             <div class="wallet-search-bar">
               <div class="search-input-wrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
@@ -672,58 +679,9 @@
             </div>
 
             <!-- Saved Words List -->
-            <div class="saved-words-list-grid" id="saved-words-container"><div class="wallet-word-card">
-      <div class="wallet-word-card-header">
-        <span class="wallet-card-term">Sami</span>
-        <span class="wallet-card-meta manually-saved">محفوظة يدوياً</span>
-      </div>
-      <div class="wallet-card-body">
-        <span class="wallet-card-translation">سامي</span>
-        <span class="wallet-card-source">محفوظة من قصص اليوم 1</span>
-      </div>
-      <div class="wallet-card-actions">
-        <button class="wallet-action-btn btn-speak" title="الاستماع للكلمة">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-        </button>
-        <button class="wallet-action-btn btn-delete" title="حذف الكلمة من المحفظة">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
-        </button>
-      </div>
-    </div><div class="wallet-word-card">
-      <div class="wallet-word-card-header">
-        <span class="wallet-card-term">family</span>
-        <span class="wallet-card-meta target-saved">كلمة مستهدفة</span>
-      </div>
-      <div class="wallet-card-body">
-        <span class="wallet-card-translation">عائلة / أسرة</span>
-        <span class="wallet-card-source">محفوظة من قصص اليوم 2</span>
-      </div>
-      <div class="wallet-card-actions">
-        <button class="wallet-action-btn btn-speak" title="الاستماع للكلمة">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-        </button>
-        <button class="wallet-action-btn btn-delete" title="حذف الكلمة من المحفظة">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
-        </button>
-      </div>
-    </div><div class="wallet-word-card">
-      <div class="wallet-word-card-header">
-        <span class="wallet-card-term">brother</span>
-        <span class="wallet-card-meta target-saved">كلمة مستهدفة</span>
-      </div>
-      <div class="wallet-card-body">
-        <span class="wallet-card-translation">أخ</span>
-        <span class="wallet-card-source">محفوظة من قصص اليوم 2</span>
-      </div>
-      <div class="wallet-card-actions">
-        <button class="wallet-action-btn btn-speak" title="الاستماع للكلمة">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-        </button>
-        <button class="wallet-action-btn btn-delete" title="حذف الكلمة من المحفظة">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
-        </button>
-      </div>
-    </div></div>
+            <div class="saved-words-list-grid" id="saved-words-container">
+              <!-- Populated dynamically via script.js -->
+            </div>
           </div>
         </div>
       </div>
@@ -735,18 +693,18 @@
           <!-- Level Hero Card -->
           <div class="level-hero-card">
             <div class="level-hero-content">
-              <div class="level-avatar" id="achieve-avatar">⚡</div>
+              <div class="level-avatar" id="achieve-avatar">🌱</div>
               <div class="level-info">
-                <div class="level-badge-tag" id="achieve-level-tag">المستوى 4</div>
-                <h1 id="achieve-level-title">خبير المفردات</h1>
+                <div class="level-badge-tag" id="achieve-level-tag">المستوى 1</div>
+                <h1 id="achieve-level-title">مبتدئ القراءة</h1>
                 <p id="achieve-level-sub">واصل القراءة واجتياز الاختبارات لكسب نقاط XP والارتقاء بالمستوى!</p>
                 <div class="xp-progress-block">
                   <div class="xp-labels">
                     <span>التقدم للمستوى التالي:</span>
-                    <span id="achieve-xp-ratio">965 / 1300 XP</span>
+                    <span id="achieve-xp-ratio">0 / 100 XP</span>
                   </div>
                   <div class="xp-bar-outer">
-                    <div class="xp-bar-fill" id="achieve-xp-fill" style="width: 33%;"></div>
+                    <div class="xp-bar-fill" id="achieve-xp-fill" style="width: 0%;"></div>
                   </div>
                 </div>
               </div>
@@ -758,7 +716,7 @@
             <div class="achieve-stat-card">
               <div class="stat-icon-box yellow">⭐</div>
               <div class="stat-val-group">
-                <span class="stat-num" id="achieve-stat-xp">965</span>
+                <span class="stat-num" id="achieve-stat-xp">0</span>
                 <span class="stat-lbl">إجمالي نقاط XP</span>
               </div>
             </div>
@@ -772,14 +730,14 @@
             <div class="achieve-stat-card">
               <div class="stat-icon-box blue">📚</div>
               <div class="stat-val-group">
-                <span class="stat-num" id="achieve-stat-words">3</span>
+                <span class="stat-num" id="achieve-stat-words">0</span>
                 <span class="stat-lbl">كلمات المحفظة</span>
               </div>
             </div>
             <div class="achieve-stat-card">
               <div class="stat-icon-box green">🏆</div>
               <div class="stat-val-group">
-                <span class="stat-num" id="achieve-stat-days">1/30</span>
+                <span class="stat-num" id="achieve-stat-days">0/30</span>
                 <span class="stat-lbl">أيام مكتملة</span>
               </div>
             </div>
@@ -792,47 +750,9 @@
           </div>
 
           <!-- Badges Grid -->
-          <div class="badges-grid" id="badges-container"><div class="badge-card unlocked">
-      <span class="badge-status-tag">مفتوح ✓</span>
-      <div class="badge-card-icon">🚀</div>
-      <div class="badge-card-title">الخطوة الأولى 🚀</div>
-      <div class="badge-card-desc">إكمال اليوم الأول من تحدي القراءة</div>
-    </div><div class="badge-card locked">
-      <span class="badge-status-tag">مغلق 🔒</span>
-      <div class="badge-card-icon">🔥</div>
-      <div class="badge-card-title">شعلة الإصرار 🔥</div>
-      <div class="badge-card-desc">الوصول إلى 3 أيام متتالية من القراءة</div>
-    </div><div class="badge-card locked">
-      <span class="badge-status-tag">مغلق 🔒</span>
-      <div class="badge-card-icon">⚡</div>
-      <div class="badge-card-title">بطل الالتزام ⚡</div>
-      <div class="badge-card-desc">الوصول إلى 7 أيام متتالية من القراءة</div>
-    </div><div class="badge-card unlocked">
-      <span class="badge-status-tag">مفتوح ✓</span>
-      <div class="badge-card-icon">🧠</div>
-      <div class="badge-card-title">علامة كاملة 🧠</div>
-      <div class="badge-card-desc">إجابة جميع أسئلة الاختبار بشكل صحيح</div>
-    </div><div class="badge-card locked">
-      <span class="badge-status-tag">مغلق 🔒</span>
-      <div class="badge-card-icon">📚</div>
-      <div class="badge-card-title">كنز الكلمات 📚</div>
-      <div class="badge-card-desc">حفظ 10 كلمات في محفظة المفردات</div>
-    </div><div class="badge-card unlocked">
-      <span class="badge-status-tag">مفتوح ✓</span>
-      <div class="badge-card-icon">🎧</div>
-      <div class="badge-card-title">مستمع ماهر 🎧</div>
-      <div class="badge-card-desc">الاستماع لقصة اليوم بالنطق الصوتي</div>
-    </div><div class="badge-card locked">
-      <span class="badge-status-tag">مغلق 🔒</span>
-      <div class="badge-card-icon">🏆</div>
-      <div class="badge-card-title">نصف المشوار 🏆</div>
-      <div class="badge-card-desc">إكمال 15 يوماً من منهج التحدي</div>
-    </div><div class="badge-card locked">
-      <span class="badge-status-tag">مغلق 🔒</span>
-      <div class="badge-card-icon">👑</div>
-      <div class="badge-card-title">أسطورة إتقان 👑</div>
-      <div class="badge-card-desc">إكمال جميع الـ 30 يوماً بالكامل!</div>
-    </div></div>
+          <div class="badges-grid" id="badges-container">
+            <!-- Dynamically populated badges -->
+          </div>
 
         </div>
       </div>
@@ -843,11 +763,11 @@
     <div class="toast-notifications-container" id="toast-container"></div>
 
     <!-- Interactive Pop-up Dictionary Tooltip (Absolute overlay positioned by script.js) -->
-    <div class="dict-tooltip hidden" id="dict-tooltip" style="top: 145.263px; left: 498.106px;">
-      <div class="tooltip-arrow" style="left: 135px; top: auto; bottom: -6px; border-top-width: medium; border-top-style: none; border-top-color: currentcolor; border-left-width: medium; border-left-style: none; border-left-color: currentcolor; border-bottom: 1px solid var(--color-primary); border-right: 1px solid var(--color-primary);"></div>
+    <div class="dict-tooltip hidden" id="dict-tooltip">
+      <div class="tooltip-arrow"></div>
       <div class="tooltip-body">
         <div class="tooltip-header">
-          <span class="tooltip-word" id="tooltip-eng">name</span>
+          <span class="tooltip-word" id="tooltip-eng">wakes up</span>
           <button class="tooltip-audio-btn" id="tooltip-audio" title="الاستماع للكلمة">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
           </button>
@@ -857,12 +777,12 @@
             <span class="translation-label">الترجمة بالعربية:</span>
             <span class="tooltip-pos-tag" id="tooltip-pos">noun / اسم</span>
           </div>
-          <span class="tooltip-arabic" id="tooltip-arb">اسم</span>
+          <span class="tooltip-arabic" id="tooltip-arb">يستيقظ</span>
         </div>
         <div class="tooltip-footer">
           <button class="tooltip-btn-save" id="tooltip-save-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <span id="tooltip-save-text">Save Word</span>
+            <span id="tooltip-save-text">حفظ الكلمة</span>
           </button>
           <button class="tooltip-btn-close" id="tooltip-close-btn">إغلاق</button>
         </div>
@@ -996,6 +916,71 @@
           </footer>
         </main>
 
+      </div>
+    </div>
+
+    <!-- Mobile Fixed Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+      <button class="mobile-nav-btn active" id="mobile-tab-challenge" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10M6 10h10M6 14h10"></path></svg>
+        <span>التحدي</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobile-tab-wallet" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line><path d="M16 14h2v2h-2z"></path></svg>
+        <span>كلماتي</span>
+        <span class="badge" id="mobile-wallet-count">0</span>
+      </button>
+      <button class="mobile-nav-btn" id="mobile-tab-achievements" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path><path d="M12 2a6 6 0 0 1 6 6v1H6V8a6 6 0 0 1 6-6z"></path></svg>
+        <span>الأوسمة</span>
+        <span class="badge badge-gold" id="mobile-badges-count">0/8</span>
+      </button>
+      <button class="mobile-nav-btn focus-trigger-btn" id="mobile-tab-focus-mode" type="button" title="وضع ملء الشاشة">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+        <span>تركيز</span>
+      </button>
+    </nav>
+
+    <!-- Reset Course Confirmation Overlay Modal -->
+    <div class="reset-modal-overlay hidden" id="reset-course-modal" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title">
+      <div class="reset-modal-card">
+        <div class="reset-modal-header">
+          <div class="reset-modal-icon">🔄</div>
+          <h3 class="reset-modal-title" id="reset-modal-title">إعادة بدء الدورة من الصفر</h3>
+        </div>
+        <p class="reset-modal-desc">
+          هل أنت متأكد من رغبتك في إعادة بدء الدورة؟ سيتم مسح وإعادة تعيين كافة بياناتك التالية:
+        </p>
+        <div class="reset-modal-list">
+          <div class="reset-list-item">
+            <span class="item-icon">🔥</span>
+            <span class="item-text">سلسلة الأيام المتتالية (الستريك)</span>
+          </div>
+          <div class="reset-list-item">
+            <span class="item-icon">⭐</span>
+            <span class="item-text">نقاط الخبرة XP والأوسمة المكتسبة</span>
+          </div>
+          <div class="reset-list-item">
+            <span class="item-icon">📖</span>
+            <span class="item-text">سجل الأيام المكتملة واختبارات القراءة</span>
+          </div>
+          <div class="reset-list-item">
+            <span class="item-icon">💼</span>
+            <span class="item-text">الكلمات والمفردات المحفوظة في محفظتك</span>
+          </div>
+        </div>
+        <div class="reset-modal-warning">
+          ⚠️ <strong>تنبيه:</strong> هذا الإجراء نهائي ولا يمكن التراجع عنه بعد التأكيد.
+        </div>
+        <div class="reset-modal-actions">
+          <button class="btn-reset-confirm" id="btn-confirm-reset-course" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+            <span>نعم، إعادة البدأ من الصفر</span>
+          </button>
+          <button class="btn-reset-cancel" id="btn-cancel-reset-course" type="button">
+            <span>إلغاء وتراجع</span>
+          </button>
+        </div>
       </div>
     </div>
 
