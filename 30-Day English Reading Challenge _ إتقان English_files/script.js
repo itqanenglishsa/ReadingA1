@@ -308,8 +308,13 @@ function updateHeaderStats() {
     headerXpCount.innerText = userXp.toString();
   }
   
+  const badgesText = `${unlockedBadges.length}/8`;
   if (badgesCountBadge) {
-    badgesCountBadge.innerText = `${unlockedBadges.length}/8`;
+    badgesCountBadge.innerText = badgesText;
+  }
+  const mobileBadgesBadge = document.getElementById("mobile-badges-count");
+  if (mobileBadgesBadge) {
+    mobileBadgesBadge.innerText = badgesText;
   }
   
   const completionPercent = Math.round((completedDays.length / 30) * 100);
@@ -321,6 +326,11 @@ function updateWalletCountBadge() {
   const count = savedWords.length;
   walletCountBadge.innerText = count.toString();
   walletTotalCount.innerText = count.toString();
+  
+  const mobileWalletBadge = document.getElementById("mobile-wallet-count");
+  if (mobileWalletBadge) {
+    mobileWalletBadge.innerText = count.toString();
+  }
   
   if (count === 0) {
     emptyWalletView.classList.remove("hidden");
@@ -749,6 +759,11 @@ function loadActiveDayContent() {
   activeDayBadge.innerText = `MISSION ${currentDayData.day.toString().padStart(2, '0')}`;
   activeStoryTitle.innerText = currentDayData.title;
   difficultyTag.innerText = currentDayData.difficulty;
+  
+  const mobileActiveDayLabel = document.getElementById("mobile-active-day-label");
+  if (mobileActiveDayLabel) {
+    mobileActiveDayLabel.innerText = `اليوم ${currentDayData.day.toString().padStart(2, '0')}`;
+  }
   
   const wordCount = currentDayData.story.split(/\s+/).length;
   wordCountBadge.innerText = `${wordCount} كلمة`;
@@ -2756,6 +2771,128 @@ function bindStaticListeners() {
       switchTab("achievements");
     });
   }
+
+  // Mobile Bottom Navigation Tabs Switching
+  const mobileTabChallenge = document.getElementById("mobile-tab-challenge");
+  const mobileTabWallet = document.getElementById("mobile-tab-wallet");
+  const mobileTabAchievements = document.getElementById("mobile-tab-achievements");
+
+  if (mobileTabChallenge) {
+    mobileTabChallenge.addEventListener("click", () => switchTab("challenge"));
+  }
+  if (mobileTabWallet) {
+    mobileTabWallet.addEventListener("click", () => switchTab("wallet"));
+  }
+  if (mobileTabAchievements) {
+    mobileTabAchievements.addEventListener("click", () => switchTab("achievements"));
+  }
+
+  // Mobile Sidebar Collapsible Toggle
+  const sidebarToggleBtn = document.getElementById("sidebar-toggle-btn");
+  const daysSidebarAside = document.getElementById("days-sidebar-aside");
+  if (sidebarToggleBtn && daysSidebarAside) {
+    sidebarToggleBtn.addEventListener("click", () => {
+      daysSidebarAside.classList.toggle("is-expanded");
+    });
+  }
+
+  // Reset Course Modal Logic
+  const resetCourseModal = document.getElementById("reset-course-modal");
+  const btnConfirmResetCourse = document.getElementById("btn-confirm-reset-course");
+  const btnCancelResetCourse = document.getElementById("btn-cancel-reset-course");
+
+  function openResetCourseModal() {
+    if (resetCourseModal) {
+      resetCourseModal.classList.remove("hidden");
+    }
+  }
+
+  function closeResetCourseModal() {
+    if (resetCourseModal) {
+      resetCourseModal.classList.add("hidden");
+    }
+  }
+
+  document.querySelectorAll(".reset-course-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openResetCourseModal();
+    });
+  });
+
+  if (btnCancelResetCourse) {
+    btnCancelResetCourse.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeResetCourseModal();
+    });
+  }
+
+  if (resetCourseModal) {
+    resetCourseModal.addEventListener("click", (e) => {
+      if (e.target === resetCourseModal) closeResetCourseModal();
+    });
+  }
+
+  if (btnConfirmResetCourse) {
+    btnConfirmResetCourse.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      executeResetCourse();
+      closeResetCourseModal();
+    });
+  }
+
+  function executeResetCourse() {
+    // Reset state variables
+    completedDays = [];
+    savedWords = [];
+    currentDayIndex = 0;
+    userXp = 0;
+    unlockedBadges = [];
+    perfectQuizCount = 0;
+    audioListenedDays = [];
+    awardedXpKeys = [];
+    streakCount = 0;
+
+    // Clear local storage entries
+    localStorage.removeItem("itqan_completed_days");
+    localStorage.removeItem("itqan_vocab_wallet");
+    localStorage.removeItem("itqan_active_day");
+    localStorage.removeItem("itqan_user_xp");
+    localStorage.removeItem("itqan_unlocked_badges");
+    localStorage.removeItem("itqan_perfect_quizzes");
+    localStorage.removeItem("itqan_audio_days");
+    localStorage.removeItem("itqan_awarded_xp_keys");
+    localStorage.removeItem("itqan_streak_count");
+    localStorage.removeItem("itqan_last_active_date");
+
+    // Save initial state
+    saveStateToStorage();
+
+    // Re-render UI components
+    renderSidebarDays();
+    loadActiveDayContent();
+    updateHeaderStats();
+    updateWalletCountBadge();
+    if (typeof renderSavedWords === "function") {
+      renderSavedWords();
+    }
+    switchTab("challenge");
+
+    // Exit focus mode if active
+    const focusOverlay = document.getElementById("focus-mode-overlay");
+    if (focusOverlay && !focusOverlay.classList.contains("hidden")) {
+      focusOverlay.classList.add("hidden");
+    }
+
+    // Show feedback toast
+    if (typeof showToastNotification === 'function') {
+      showToastNotification("تمت إعادة بدء الدورة بنجاح! 🔄", "تم إفراغ كافة البيانات والبدء مجدداً من اليوم الأول.", "✨");
+    } else if (typeof showToast === 'function') {
+      showToast("تمت إعادة بدء الدورة بنجاح! 🔄");
+    }
+  }
   
   logoHome.addEventListener("click", () => {
     switchTab("challenge");
@@ -2843,10 +2980,18 @@ function bindStaticListeners() {
 function switchTab(target) {
   activeTab = target;
   
-  // Reset all tabs active status
+  // Reset all desktop & mobile tabs active status
   tabChallengeBtn.classList.remove("active");
   tabWalletBtn.classList.remove("active");
   if (tabAchievementsBtn) tabAchievementsBtn.classList.remove("active");
+
+  const mobileTabChallenge = document.getElementById("mobile-tab-challenge");
+  const mobileTabWallet = document.getElementById("mobile-tab-wallet");
+  const mobileTabAchievements = document.getElementById("mobile-tab-achievements");
+
+  if (mobileTabChallenge) mobileTabChallenge.classList.remove("active");
+  if (mobileTabWallet) mobileTabWallet.classList.remove("active");
+  if (mobileTabAchievements) mobileTabAchievements.classList.remove("active");
   
   panelChallenge.classList.remove("active");
   panelWallet.classList.remove("active");
@@ -2854,16 +2999,22 @@ function switchTab(target) {
   
   if (activeTab === "challenge") {
     tabChallengeBtn.classList.add("active");
+    if (mobileTabChallenge) mobileTabChallenge.classList.add("active");
     panelChallenge.classList.add("active");
   } else if (activeTab === "wallet") {
     tabWalletBtn.classList.add("active");
+    if (mobileTabWallet) mobileTabWallet.classList.add("active");
     panelWallet.classList.add("active");
     renderWalletItems();
   } else if (activeTab === "achievements") {
     if (tabAchievementsBtn) tabAchievementsBtn.classList.add("active");
+    if (mobileTabAchievements) mobileTabAchievements.classList.add("active");
     if (panelAchievements) panelAchievements.classList.add("active");
     renderAchievementsPanel();
   }
+
+  // Smooth scroll window back to top when switching tabs
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   
   // Pause any voice active during transitions
   stopVoice();
@@ -4324,10 +4475,3 @@ function playFocusAudio() {
    Trigger App Lifecycle Initialization
    ========================================================================== */
 window.addEventListener("DOMContentLoaded", initializeApp);
-
-function resetCourse() {
-  if (confirm("هل أنت متأكد من رغبتك في إعادة بدء الدورة؟ سيتم مسح كل تقدمك والبدء من جديد.")) {
-    localStorage.clear();
-    location.reload();
-  }
-}
