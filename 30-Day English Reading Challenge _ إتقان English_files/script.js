@@ -3519,225 +3519,45 @@ function refreshAllWordSaveStates() {
 }
 
 
-/* ========================================================================== 
-   Native Browser Text-To-Speech (Speech Synthesis) Engine
+/* ==========================================================================
+   Native Browser Text-To-Speech (Speech Synthesis)
    ========================================================================== */
 
-let speechFallbackTimer = null;
-let speechFallbackInterval = null;
-let speechBoundaryFired = false;
-
-// 1. معالجة النصوص وحالات النطق الخاصة
 function correctTextForSpeech(text) {
   if (!text) return "";
-  // إصلاح نطق كلمة lives حسب السياق
+  // Fix verb heteronym 'lives' (/lɪvz/ = يعيش) vs noun 'lives' (/laɪvz/ = حيوات) for SpeechSynthesis
   return text.replace(/\blives\b/gi, (m) => (m[0] === 'L' ? 'Livs' : 'livs'));
 }
 
-// 2. جلب جميع عناصر الكلمات المجهزة في كل من الشاشة الرئيسية وشاشة التكبير معاً
-function getStoryAudioSpans() {
-  const selector = "#story-text-view .story-word, #story-text-view .untranslated-word, #focus-story-box .story-word, #focus-story-box .untranslated-word";
-  const nodes = document.querySelectorAll(selector);
-  if (nodes.length > 0) return Array.from(nodes);
-  return Array.from(document.querySelectorAll(".story-word, .untranslated-word"));
+function speakWord(word) {
+  if (!synth) return;
+  
+  // Stop active synthesis
+  synth.cancel();
+  
+  const utterance = new SpeechSynthesisUtterance(correctTextForSpeech(word));
+  utterance.lang = 'en-US';
+  utterance.rate = 0.85; // slightly slower for learners
+  utterance.pitch = 1.0;
+  
+  synth.speak(utterance);
 }
 
-// 3. مسح تظليل الكلمات من جميع الشاشات
-function clearStoryAudioHighlights() {
-  document.querySelectorAll(".story-word, .untranslated-word").forEach(span => {
-    span.classList.remove("active-speaking");
-  });
-}
-
-// 4. مسح المؤقتات الزمنية للمحاكاة الاحتياطية
-function clearSpeechTimers() {
-  if (speechFallbackTimer) {
-    clearTimeout(speechFallbackTimer);
-    speechFallbackTimer = null;
-  }
-  if (speechFallbackInterval) {
-    clearInterval(speechFallbackInterval);
-    speechFallbackInterval = null;
-  }
-}
-
-// 5. تظليل الكلمة المنطوقة في جميع الشاشات والتمرير التلقائي المزدوج
-function highlightStoryWordByBoundary(charIndex) {
-  const spans = getStoryAudioSpans();
-  if (!spans || spans.length === 0) return;
-
-  let matchedStart = null;
-  let minDistance = Infinity;
-
-  // البحث عن أوفست الكلمة المطابقة لـ charIndex
-  spans.forEach(span => {
-    const start = parseInt(span.getAttribute("data-start"), 10);
-    const end = parseInt(span.getAttribute("data-end"), 10);
-
-    if (!isNaN(start) && !isNaN(end)) {
-      if (charIndex >= start && charIndex < end) {
-        matchedStart = start;
-      } else if (matchedStart === null) {
-        const dist = Math.abs(start - charIndex);
-        if (dist < minDistance && dist <= 3) {
-          minDistance = dist;
-          matchedStart = start;
-        }
-      }
-    }
-  });
-
-  // تلوين كل الكلمات المطابقة في الشاشة الرئيسية وشاشة التكبير بنفس اللحظة
-  if (matchedStart !== null) {
-    spans.forEach(span => {
-      const start = parseInt(span.getAttribute("data-start"), 10);
-      if (start === matchedStart) {
-        if (!span.classList.contains("active-speaking")) {
-          span.classList.add("active-speaking");
-          try {
-            span.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
-          } catch (e) {
-            span.scrollIntoView(false);
-          }
-        }
-      } else {
-        span.classList.remove("active-speaking");
-      }
-    });
-  }
-}
-
-// 6. المحرك الرئيسي للقراءة الصوتية مع البديل الذكي لأندرويد (Fallback)
-function speakStoryTextWithHighlight(text, options = {}) {
+function toggleVoiceStory() {
   if (!synth) {
     alert("خاصية النطق الصوتي غير مدعومة في هذا المتصفح.");
     return;
   }
-
-  // تنظيف أي قراءة أو مؤقتات سابقة
-  clearSpeechTimers();
-  if (synth.speaking || synth.pending) {
-    synth.cancel();
+  
+  if (synth.speaking) {
+    stopVoice();
+  } else {
+    playVoiceStory();
   }
-
-  const storyText = typeof correctTextForSpeech === 'function' ? correctTextForSpeech(text) : text;
-  if (!storyText) return;
-
-  const rate = options.rate || 0.85;
-  const onEndCallback = options.onEndCallback || null;
-  const onStartCallback = options.onStartCallback || null;
-
-  speechBoundaryFired = false;
-
-  const utterance = new SpeechSynthesisUtterance(storyText);
-  utterance.lang = 'en-US';
-  utterance.rate = rate;
-  utterance.pitch = 1.0;
-
-  // حفظ الكائن في النطاق العام لمنع Garbage Collector من إيقاف الصوت
-  window.currentUtterance = utterance;
-  currentUtterance = utterance;
-
-  // حدث الحد المباشر للمتصفحات المدعومة
-  utterance.onboundary = function(event) {
-    if (event.name === 'word' || !event.name) {
-      speechBoundaryFired = true;
-      highlightStoryWordByBoundary(event.charIndex);
-    }
-  };
-
-  utterance.onstart = function() {
-    if (typeof onStartCallback === 'function') onStartCallback();
-  };
-
-  utterance.onend = function() {
-    clearSpeechTimers();
-    clearStoryAudioHighlights();
-    if (typeof onEndCallback === 'function') onEndCallback();
-  };
-
-  utterance.onerror = function() {
-    clearSpeechTimers();
-    clearStoryAudioHighlights();
-    if (typeof onEndCallback === 'function') onEndCallback();
-  };
-
-  // مؤقت احتياطي ذكي لأجهزة أندرويد في حال عدم إطلاق onboundary
-  speechFallbackTimer = setTimeout(() => {
-    if (!speechBoundaryFired && (synth.speaking || synth.pending)) {
-      const spans = getStoryAudioSpans();
-      if (!spans || spans.length === 0) return;
-
-      const uniqueSpans = [];
-      const seen = new Set();
-      spans.forEach(span => {
-        const start = parseInt(span.getAttribute("data-start"), 10);
-        if (!isNaN(start) && !seen.has(start)) {
-          seen.add(start);
-          uniqueSpans.push({ start: start, text: span.textContent || "" });
-        }
-      });
-
-      if (uniqueSpans.length === 0) return;
-
-      let currentIdx = 0;
-      const msPerWord = Math.max(120, Math.round(310 / rate));
-
-      highlightStoryWordByBoundary(uniqueSpans[0].start);
-
-      speechFallbackInterval = setInterval(() => {
-        if (speechBoundaryFired) {
-          clearInterval(speechFallbackInterval);
-          speechFallbackInterval = null;
-          return;
-        }
-
-        if (!synth.speaking && !synth.pending) {
-          clearSpeechTimers();
-          clearStoryAudioHighlights();
-          if (typeof onEndCallback === 'function') onEndCallback();
-          return;
-        }
-
-        currentIdx++;
-        if (currentIdx < uniqueSpans.length) {
-          highlightStoryWordByBoundary(uniqueSpans[currentIdx].start);
-        } else {
-          clearInterval(speechFallbackInterval);
-          speechFallbackInterval = null;
-        }
-      }, msPerWord);
-    }
-  }, 400);
-
-  synth.speak(utterance);
 }
 
-// 7. دالة تحديث الواجهة عند إيقاف الصوت
-function stopVoiceUI() {
-  if (btnListen) {
-    btnListen.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-      <span>الاستماع للقصة</span>
-    `;
-    btnListen.classList.remove("voice-active");
-  }
-
-  const focusWaveAnim = document.getElementById("focus-wave-anim");
-  const focusAudioPlayText = document.getElementById("focus-audio-play-text");
-  if (focusWaveAnim) focusWaveAnim.classList.remove("active");
-  if (focusAudioPlayText) focusAudioPlayText.innerText = "الاستماع الصوتي للقصة";
-}
-
-// 8. تشغيل قراءة القصة من الشاشة الرئيسية
 function playVoiceStory() {
   const currentDayData = challengeData[currentDayIndex];
-  if (!currentDayData || !currentDayData.story) return;
-
-  if (synth && synth.speaking) {
-    stopVoice();
-    return;
-  }
   
   if (!audioListenedDays.includes(currentDayData.day)) {
     audioListenedDays.push(currentDayData.day);
@@ -3745,62 +3565,84 @@ function playVoiceStory() {
   const audioKey = `audio_listen_day_${currentDayData.day}`;
   awardXpOnce(audioKey, 15, "الاستماع بالصوت", btnListen);
   
-  if (btnListen) {
-    btnListen.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon animation-speaking-pulse"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-      <span>إيقاف القراءة</span>
-    `;
-    btnListen.classList.add("voice-active");
-  }
+  btnListen.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon animation-speaking-pulse"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+    <span>إيقاف القراءة</span>
+  `;
+  btnListen.classList.add("voice-active");
   
-  speakStoryTextWithHighlight(currentDayData.story, {
-    rate: 0.85,
-    onEndCallback: () => {
-      stopVoiceUI();
+  currentUtterance = new SpeechSynthesisUtterance(correctTextForSpeech(currentDayData.story));
+  currentUtterance.lang = 'en-US';
+  currentUtterance.rate = 0.85; // Comfortable listening pace
+  
+  // Highlight words boundary callback
+  currentUtterance.onboundary = function(event) {
+    if (event.name === 'word') {
+      const charIndex = event.charIndex;
+      const spans = storyTextView.querySelectorAll(".story-word, .untranslated-word");
+      
+      let matchedSpan = null;
+      let minDistance = Infinity;
+      
+      spans.forEach(span => {
+        const start = parseInt(span.getAttribute("data-start"), 10);
+        const end = parseInt(span.getAttribute("data-end"), 10);
+        
+        if (!isNaN(start) && !isNaN(end)) {
+          if (charIndex >= start && charIndex < end) {
+            matchedSpan = span;
+          } else {
+            const dist = Math.abs(start - charIndex);
+            if (dist < minDistance) {
+              minDistance = dist;
+              if (!matchedSpan && dist <= 3) {
+                matchedSpan = span;
+              }
+            }
+          }
+        }
+      });
+      
+      if (matchedSpan) {
+        spans.forEach(span => {
+          if (span === matchedSpan) {
+            span.classList.add("active-speaking");
+            span.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+          } else {
+            span.classList.remove("active-speaking");
+          }
+        });
+      }
     }
-  });
-}
-
-// 9. إيقاف جميع الأصوات وتنظيف الحالة بالكامل
-function stopVoice() {
-  clearSpeechTimers();
-  if (synth) {
-    synth.cancel();
-  }
-  window.currentUtterance = null;
-  currentUtterance = null;
-  clearStoryAudioHighlights();
-  stopVoiceUI();
-}
-
-// 10. تشغيل قراءة القصة من وضع التكبير (Focus Mode)
-function playFocusAudio() {
-  if (!synth) {
-    alert("خاصية النطق الصوتي غير مدعومة في هذا المتصفح.");
-    return;
-  }
-
-  const dayData = challengeData[currentDayIndex];
-  if (!dayData || !dayData.story) return;
-
-  if (synth && synth.speaking) {
+  };
+  
+  currentUtterance.onend = function() {
     stopVoice();
-    return;
-  }
+  };
+  
+  currentUtterance.onerror = function() {
+    stopVoice();
+  };
+  
+  synth.speak(currentUtterance);
+}
 
-  const focusWaveAnim = document.getElementById("focus-wave-anim");
-  const focusAudioPlayText = document.getElementById("focus-audio-play-text");
-
-  if (focusWaveAnim) focusWaveAnim.classList.add("active");
-  if (focusAudioPlayText) focusAudioPlayText.innerText = "إيقاف الاستماع";
-
-  speakStoryTextWithHighlight(dayData.story, {
-    rate: focusSelectedSpeed || 0.75,
-    onEndCallback: () => {
-      stopVoiceUI();
-    }
+function stopVoice() {
+  if (!synth) return;
+  synth.cancel();
+  
+  btnListen.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+    <span>الاستماع للقصة</span>
+  `;
+  btnListen.classList.remove("voice-active");
+  
+  // Remove speaking/highlight style classes on completion
+  document.querySelectorAll("#story-text-view .story-word").forEach(span => {
+    span.classList.remove("active-speaking", "highlight", "active-word");
   });
 }
+
 
 /* ==========================================================================
    Milestone Navigation & Completion
