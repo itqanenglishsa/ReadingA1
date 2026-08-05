@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30-Day English Reading Challenge | إتقان English</title>
+  <!-- Google Fonts: Official Itqan English Brand Fonts (Almarai & Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./30-Day English Reading Challenge _ إتقان English_files/css2.css" rel="stylesheet">
+  <link rel="stylesheet" href="./30-Day English Reading Challenge _ إتقان English_files/style.css">
+</head>
+<body>
+
+  <!-- App Container -->
+  <div class="app-container" id="app-root">
+    
+    <!-- Top Sticky Header -->
+    <header class="main-header">
+      <div class="header-content">
+        <!-- Official Itqan English Logo -->
+        <div class="logo-container" id="logo-home">
+        <div class="itqan-brand-logo-box">
+  <img src="logo.png" alt="Itqan English Logo" width="120" class="itqan-pure-logo">
+</div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="header-nav">
+          <button class="nav-btn active" id="tab-challenge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10M6 10h10M6 14h10"></path></svg>
+            <span>التحدي اليومي</span>
+          </button>
+          <button class="nav-btn" id="tab-wallet">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line><path d="M16 14h2v2h-2z"></path></svg>
+            <span>كلماتي المحفوظة</span>
+            <span class="badge" id="wallet-count">0</span>
+          </button>
+          <button class="nav-btn" id="tab-achievements">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path><path d="M12 2a6 6 0 0 1 6 6v1H6V8a6 6 0 0 1 6-6z"></path></svg>
+            <span>الأوسمة والإنجازات</span>
+            <span class="badge badge-gold" id="badges-count">1/8</span>
+          </button>
+          <button class="nav-btn focus-trigger-btn" id="tab-focus-mode" title="فتح القراءة بملء الشاشة بدون مشتتات">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+            <span>وضع ملء الشاشة</span>
+          </button>
+        </nav>
+
+        <!-- Streak & Progress Summary -->
+        <div class="header-stats">
+          <div class="stat-item xp-badge" id="header-xp-badge" title="نقاط الخبرة XP">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-xp"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span id="header-xp-count">35</span> XP
+          </div>
+          <div class="stat-item streak-badge" title="سلسلة الأيام المتتالية">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-streak"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+            <span id="streak-count">1</span> أيام
+          </div>
+          <button class="reset-course-btn" id="reset-course-btn" title="إعادة بدء الدورة من البداية ومسح التقدم">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-reset"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+            <span>إعادة بدء الدورة</span>
+          </button>
+          <div class="progress-ring-container">
+            <div class="progress-text-compact">
+              <span id="progress-percent">0%</span> مكتمل
+            </div>
+            <div class="progress-bar-mini">
+              <div class="progress-bar-fill" id="header-progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <main class="main-content-layout">
+      
+      <!-- Challenge Panel View (Reader & Sidebar) -->
+      <div class="workspace-panel active" id="panel-challenge">
+        <div class="challenge-layout">
+          
+          <!-- LEFT SIDEBAR: 30-Day Grid/List Navigation -->
+          <aside class="days-sidebar">
+            <div class="sidebar-header">
+              <h2>منهج الـ 30 يوماً</h2>
+              <p class="sidebar-subtitle">المستوى المبتدئ (A1) - قصص الكلمات</p>
+            </div>
+            <div class="days-list" id="days-navigation-container"><button class="day-nav-item active " id="sidebar-day-1">
+      <div class="day-status-indicator">
+        <div class="status-icon-active"></div>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 01</div>
+        <div class="day-item-title">Meeting a New Friend (التعارف والصداقة)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-2">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 02</div>
+        <div class="day-item-title">My Family at Home (عائلتي في المنزل)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-3">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 03</div>
+        <div class="day-item-title">Breakfast in the Kitchen (الفطور في المطبخ)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-4">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 04</div>
+        <div class="day-item-title">My Daily Routine (روتيني اليومي)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-5">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 05</div>
+        <div class="day-item-title">Colors Around Us (الألوان من حولنا)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-6">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 06</div>
+        <div class="day-item-title">My Body and Health (جسمي وصحتي)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-7">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 07</div>
+        <div class="day-item-title">Dressing for Cold Weather (الملابس الشتوية)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-8">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 08</div>
+        <div class="day-item-title">Animals on the Farm (الحيوانات في المزرعة)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-9">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 09</div>
+        <div class="day-item-title">Counting School Supplies (عد الأدوات المدرسية)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-10">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 10</div>
+        <div class="day-item-title">Days of the Week and Time (أيام الأسبوع والوقت)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-11">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 11</div>
+        <div class="day-item-title">A Walk in the City (جولة في المدينة)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-12">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 12</div>
+        <div class="day-item-title">Inside the Classroom (في الفصل الدراسي)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-13">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 13</div>
+        <div class="day-item-title">Travelling by Bus and Train (وسائل المواصلات)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-14">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 14</div>
+        <div class="day-item-title">Jobs and Careers (المهن والوظائف)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-15">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 15</div>
+        <div class="day-item-title">Fruits and Vegetables (الفواكه والخضروات)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-16">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 16</div>
+        <div class="day-item-title">Weather and Seasons (الطقس والفصول)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-17">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 17</div>
+        <div class="day-item-title">Shopping for Clothes (التسوق للملابس)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-18">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 18</div>
+        <div class="day-item-title">Inside My Bedroom (داخل غرفة نومي)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-19">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 19</div>
+        <div class="day-item-title">Sports and Exercise (الرياضة والتمارين)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-20">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 20</div>
+        <div class="day-item-title">Learning Opposites (تعلم الكلمات الضد)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-21">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 21</div>
+        <div class="day-item-title">A Trip to the Zoo (رحلة إلى حديقة الحيوان)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-22">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 22</div>
+        <div class="day-item-title">Feelings and Emotions (المشاعر والعواطف)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-23">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 23</div>
+        <div class="day-item-title">Where is My Pen? (حروف الجر والمواقع)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-24">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 24</div>
+        <div class="day-item-title">Cooking Dinner Together (طبخ العشاء معاً)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-25">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 25</div>
+        <div class="day-item-title">A Summer Day at the Beach (يوم في الشاطئ)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-26">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 26</div>
+        <div class="day-item-title">At the Airport (في المطار والسفر)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-27">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 27</div>
+        <div class="day-item-title">A Day at the Office (يوم في المكتب)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-28">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 28</div>
+        <div class="day-item-title">A Birthday Party (حفلة عيد الميلاد)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-29">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 29</div>
+        <div class="day-item-title">Cleanliness and Health (النظافة والصحة)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button><button class="day-nav-item  " id="sidebar-day-30">
+      <div class="day-status-indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="status-icon-locked"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="16" y2="12"></line><line x1="12" x2="12.01" y1="8" y2="8"></line></svg>
+      </div>
+      <div class="day-item-meta">
+        <div class="day-item-num">اليوم 30</div>
+        <div class="day-item-title">My English Future (مستقبلي في اللغة الإنجليزية)</div>
+      </div>
+      <span class="day-level-tag">A1</span>
+    </button></div>
+          </aside>
+
+          <!-- RIGHT CONTENT: Story Reader, Word Lists, Quizzes -->
+          <section class="reader-area">
+            
+            <!-- Reading Mission Hero & Clue Hub -->
+            <div class="day-hero-card quest-mission-hero">
+              <div class="mission-top-bar">
+                <div class="day-meta-badge" id="active-day-badge">MISSION 01</div>
+                <div class="quest-tag"><span class="quest-sparkle">✨</span> مهمة قراءة تفاعلية</div>
+              </div>
+              <h1 id="active-story-title">Meeting a New Friend (التعارف والصداقة)</h1>
+              <div class="story-difficulty-level">
+                <span class="level-indicator" id="difficulty-tag">A1 Beginner</span>
+                <span class="bullet">•</span>
+                <span id="word-count-badge">50 كلمة</span>
+                <span class="bullet">•</span>
+                <span class="mission-status-pill" id="mission-status-badge">🎯 مهمة نشطة</span>
+              </div>
+
+              <!-- Interactive Clues Hub (تلميحات الدرس) -->
+              <div class="clues-hub-container">
+                <div class="clues-hub-title">💡 تلميحات القصة والدرس:</div>
+                <div class="clues-buttons-group">
+                  <button class="clue-chip-btn" id="clue-btn-hint" title="عرض هدف القصة والدرس">
+                    <span class="clue-icon">📜</span>
+                    <span>هدف القصة</span>
+                  </button>
+                  <button class="clue-chip-btn" id="clue-btn-map" title="عرض مكان الأحداث">
+                    <span class="clue-icon">🗺️</span>
+                    <span>مكان القصة</span>
+                  </button>
+                </div>
+                <div class="clue-display-box hidden" id="clue-display-box">
+                  <span id="clue-display-text"></span>
+                  <button class="clue-close-btn" id="clue-close-btn">×</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gamified Interactive Reading Modes Navigation Bar -->
+            <div class="quest-modes-wrapper">
+              <div class="quest-modes-header">
+                <span class="modes-title">🎮 اختر أسلوب القراءة والتحدي:</span>
+                <span class="modes-xp-hint">+20 XP لكل نشاط مكتمل</span>
+              </div>
+              <div class="quest-modes-nav" id="quest-modes-nav">
+                <button class="mode-chip-btn active" data-mode="reader">
+                  <span class="mode-icon">📖</span>
+                  <span>القصة والتفاعل</span>
+                </button>
+                <button class="mode-chip-btn" data-mode="detective">
+                  <span class="mode-icon">🕵️</span>
+                  <span>وضع المحقق</span>
+                </button>
+                <button class="mode-chip-btn" data-mode="shadowing">
+                  <span class="mode-icon">🗣️</span>
+                  <span>التظليل والمحاكاة</span>
+                </button>
+                <button class="mode-chip-btn" data-mode="puzzle">
+                  <span class="mode-icon">🧩</span>
+                  <span>ترتيب الأحداث</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Game Mode Arena Dynamic Container -->
+            <div class="game-mode-arena hidden" id="game-mode-arena">
+    <div class="arena-card-title">
+      <span>🕵️</span> <span>وضع المحقق التفاعلي (Interactive Detective Mode)</span>
+    </div>
+    <p class="arena-card-desc">أهلاً بك يا سيادة المحقق! أمامك ملف القضية رقم #1. اجمع الأدلة من نص القصة بالضغط على الكلمات، ثم أجب عن سؤال التحقيق لحسم القضية!</p>
+    
+    <!-- Detective Case File Box -->
+    <div class="detective-case-box">
+      <div class="detective-case-header">
+        <div class="detective-badge">🔍 ملف القضية رقم #1 • حالة الملف: قيد التحقيق الميداني</div>
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <div class="detective-progress-badge" id="detective-progress-text">الأدلة المفتشة: 0 / 3 🔎</div>
+          <button class="action-btn-primary focus-trigger-btn" id="btn-detective-focus-mode" title="تكبير وقراءة بثيم المحقق الخاص" style="background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important; box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35) !important;">
+            <span>🕵️</span>
+            <span>تكبير وقراءة بدون مشتتات (ثيم المحقق)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Detective Notebook / Clues Board -->
+      <div class="detective-notebook">
+        <div class="notebook-title">📓 مذكرة المحقق (الأدلة السرية المطلوب اكتشافها بالنص):</div>
+        <div class="detective-clues-grid" id="detective-clues-container">
+          
+            <div class="detective-clue-chip " id="detective-clue-0">
+              <span class="clue-status-icon">❓</span>
+              <span class="clue-word-tag">hello</span>
+              <span class="clue-trans-tag">(اضغط الكلمة في القصة)</span>
+            </div>
+          
+            <div class="detective-clue-chip " id="detective-clue-1">
+              <span class="clue-status-icon">❓</span>
+              <span class="clue-word-tag">friend</span>
+              <span class="clue-trans-tag">(اضغط الكلمة في القصة)</span>
+            </div>
+          
+            <div class="detective-clue-chip " id="detective-clue-2">
+              <span class="clue-status-icon">❓</span>
+              <span class="clue-word-tag">welcome</span>
+              <span class="clue-trans-tag">(اضغط الكلمة في القصة)</span>
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- Detective Question & Verdict -->
+      <div class="detective-interrogation-box">
+        <div class="detective-question">❓ استجواب القضية: Where does Sami meet his new friend?</div>
+        <div class="detective-options-grid" id="detective-opts-container">
+          
+            <button class="detective-opt-btn" data-idx="0">
+              <span class="opt-inspect-icon">🔍</span>
+              <span>1. At home</span>
+            </button>
+          
+            <button class="detective-opt-btn" data-idx="1">
+              <span class="opt-inspect-icon">🔍</span>
+              <span>2. At school</span>
+            </button>
+          
+            <button class="detective-opt-btn" data-idx="2">
+              <span class="opt-inspect-icon">🔍</span>
+              <span>3. At the park</span>
+            </button>
+          
+        </div>
+        
+        <div class="detective-actions-row">
+          <button class="btn-secondary" id="btn-detective-hint" style="padding: 6px 14px; font-size: 0.88rem;">
+            <span>💡 طلب تلميح من المساعد</span>
+          </button>
+        </div>
+        <div id="detective-hint-box" class="detective-hint-callout hidden"></div>
+      </div>
+    </div>
+
+    <!-- Story Text Inspector View -->
+    <div class="story-board-wrapper">
+      <div class="reader-toolbar">
+        <span class="toolbar-tip">🔍 انقر على الكلمات داخل النص أدناه لجمع الأدلة وقراءتها (أو افتح "وضع القراءة بملء الشاشة 📖" لتفعيل كشاف المحقق):</span>
+      </div>
+      <article class="story-container" id="detective-story-view">
+        <span class="story-word" data-word="hello" data-start="0" data-end="5">Hello</span>! <span class="story-word" data-word="my" data-start="7" data-end="9">My</span> <span class="story-word" data-word="name" data-start="10" data-end="14">name</span> <span class="story-word" data-word="is" data-start="15" data-end="17">is</span> <span class="story-word" data-word="sami" data-start="18" data-end="22">Sami</span>. <span class="story-word" data-word="i" data-start="24" data-end="25">I</span> <span class="story-word" data-word="am" data-start="26" data-end="28">am</span> <span class="story-word" data-word="a" data-start="29" data-end="30">a</span> <span class="story-word" data-word="student" data-start="31" data-end="38">student</span>. <span class="story-word" data-word="today" data-start="40" data-end="45">Today</span>, <span class="story-word" data-word="i" data-start="47" data-end="48">I</span> <span class="story-word" data-word="meet" data-start="49" data-end="53">meet</span> <span class="story-word" data-word="a" data-start="54" data-end="55">a</span> <span class="story-word" data-word="new" data-start="56" data-end="59">new</span> <span class="story-word" data-word="friend" data-start="60" data-end="66">friend</span> <span class="story-word" data-word="at" data-start="67" data-end="69">at</span> <span class="story-word" data-word="school" data-start="70" data-end="76">school</span>. <span class="story-word" data-word="his" data-start="78" data-end="81">His</span> <span class="story-word" data-word="name" data-start="82" data-end="86">name</span> <span class="story-word" data-word="is" data-start="87" data-end="89">is</span> <span class="story-word" data-word="adam" data-start="90" data-end="94">Adam</span>. <span class="story-word" data-word="he" data-start="96" data-end="98">He</span> <span class="story-word" data-word="says" data-start="99" data-end="103">says</span>, '<span class="story-word" data-word="hi" data-start="106" data-end="108">Hi</span> <span class="story-word" data-word="sami" data-start="109" data-end="113">Sami</span>, <span class="story-word" data-word="nice" data-start="115" data-end="119">nice</span> <span class="story-word" data-word="to" data-start="120" data-end="122">to</span> <span class="story-word" data-word="meet" data-start="123" data-end="127">meet</span> <span class="story-word" data-word="you" data-start="128" data-end="131">you</span>!' <span class="story-word" data-word="i" data-start="134" data-end="135">I</span> <span class="story-word" data-word="say" data-start="136" data-end="139">say</span>, '<span class="story-word" data-word="welcome" data-start="142" data-end="149">Welcome</span> <span class="story-word" data-word="to" data-start="150" data-end="152">to</span> <span class="story-word" data-word="our" data-start="153" data-end="156">our</span> <span class="story-word" data-word="class" data-start="157" data-end="162">class</span>!' <span class="story-word" data-word="we" data-start="165" data-end="167">We</span> <span class="story-word" data-word="are" data-start="168" data-end="171">are</span> <span class="story-word" data-word="very" data-start="172" data-end="176">very</span> <span class="story-word" data-word="happy" data-start="177" data-end="182">happy</span> <span class="story-word" data-word="to" data-start="183" data-end="185">to</span> <span class="story-word" data-word="be" data-start="186" data-end="188">be</span> <span class="story-word" data-word="friends" data-start="189" data-end="196">friends</span>. <span class="story-word" data-word="we" data-start="198" data-end="200">We</span> <span class="story-word" data-word="walk" data-start="201" data-end="205">walk</span> <span class="story-word" data-word="together" data-start="206" data-end="214">together</span> <span class="story-word" data-word="and" data-start="215" data-end="218">and</span> <span class="story-word" data-word="talk" data-start="219" data-end="223">talk</span> <span class="story-word" data-word="about" data-start="224" data-end="229">about</span> <span class="story-word" data-word="our" data-start="230" data-end="233">our</span> <span class="story-word" data-word="day" data-start="234" data-end="237">day</span>.
+      </article>
+    </div>
+  </div>
+
+            <!-- Standard Interactive Reader Board -->
+            <div class="story-board-wrapper" id="story-board-block">
+              <div class="reader-toolbar">
+                <div class="reader-toolbar-start">
+                  <span class="toolbar-tip">💡 انقر على أي كلمة لترجمتها بالعربية</span>
+                  <div class="memory-cloze-inline" id="memory-cloze-controls">
+                    <span class="cloze-label">إخفاء الكلمات:</span>
+                    <button class="cloze-btn active" data-cloze="0">0%</button>
+                    <button class="cloze-btn" data-cloze="50">50%</button>
+                    <button class="cloze-btn" data-cloze="100">100%</button>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                  <button class="action-btn-primary focus-trigger-btn" id="btn-focus-mode" title="تكبير وقراءة بدون مشتتات">
+                    <span>🔍</span>
+                    <span>تكبير وقراءة بدون مشتتات</span>
+                  </button>
+                  <button class="action-btn-secondary voice-btn" id="btn-listen" title="استمع إلى نطق القصة">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+    <span>الاستماع للقصة</span>
+  </button>
+                </div>
+              </div>
+
+              <!-- Main Story Card -->
+              <article class="story-container" id="story-text-view"><span class="story-word" data-word="hello" data-start="0" data-end="5">Hello</span>! <span class="story-word" data-word="my" data-start="7" data-end="9">My</span> <span class="story-word" data-word="name" data-start="10" data-end="14">name</span> <span class="story-word" data-word="is" data-start="15" data-end="17">is</span> <span class="story-word" data-word="sami" data-start="18" data-end="22">Sami</span>. <span class="story-word" data-word="i" data-start="24" data-end="25">I</span> <span class="story-word" data-word="am" data-start="26" data-end="28">am</span> <span class="story-word" data-word="a" data-start="29" data-end="30">a</span> <span class="story-word" data-word="student" data-start="31" data-end="38">student</span>. <span class="story-word" data-word="today" data-start="40" data-end="45">Today</span>, <span class="story-word" data-word="i" data-start="47" data-end="48">I</span> <span class="story-word" data-word="meet" data-start="49" data-end="53">meet</span> <span class="story-word" data-word="a" data-start="54" data-end="55">a</span> <span class="story-word" data-word="new" data-start="56" data-end="59">new</span> <span class="story-word" data-word="friend" data-start="60" data-end="66">friend</span> <span class="story-word" data-word="at" data-start="67" data-end="69">at</span> <span class="story-word" data-word="school" data-start="70" data-end="76">school</span>. <span class="story-word" data-word="his" data-start="78" data-end="81">His</span> <span class="story-word" data-word="name" data-start="82" data-end="86">name</span> <span class="story-word" data-word="is" data-start="87" data-end="89">is</span> <span class="story-word" data-word="adam" data-start="90" data-end="94">Adam</span>. <span class="story-word" data-word="he" data-start="96" data-end="98">He</span> <span class="story-word" data-word="says" data-start="99" data-end="103">says</span>, '<span class="story-word" data-word="hi" data-start="106" data-end="108">Hi</span> <span class="story-word" data-word="sami" data-start="109" data-end="113">Sami</span>, <span class="story-word" data-word="nice" data-start="115" data-end="119">nice</span> <span class="story-word" data-word="to" data-start="120" data-end="122">to</span> <span class="story-word" data-word="meet" data-start="123" data-end="127">meet</span> <span class="story-word" data-word="you" data-start="128" data-end="131">you</span>!' <span class="story-word" data-word="i" data-start="134" data-end="135">I</span> <span class="story-word" data-word="say" data-start="136" data-end="139">say</span>, '<span class="story-word" data-word="welcome" data-start="142" data-end="149">Welcome</span> <span class="story-word" data-word="to" data-start="150" data-end="152">to</span> <span class="story-word" data-word="our" data-start="153" data-end="156">our</span> <span class="story-word" data-word="class" data-start="157" data-end="162">class</span>!' <span class="story-word" data-word="we" data-start="165" data-end="167">We</span> <span class="story-word" data-word="are" data-start="168" data-end="171">are</span> <span class="story-word" data-word="very" data-start="172" data-end="176">very</span> <span class="story-word" data-word="happy" data-start="177" data-end="182">happy</span> <span class="story-word" data-word="to" data-start="183" data-end="185">to</span> <span class="story-word" data-word="be" data-start="186" data-end="188">be</span> <span class="story-word" data-word="friends" data-start="189" data-end="196">friends</span>. <span class="story-word" data-word="we" data-start="198" data-end="200">We</span> <span class="story-word" data-word="walk" data-start="201" data-end="205">walk</span> <span class="story-word" data-word="together" data-start="206" data-end="214">together</span> <span class="story-word" data-word="and" data-start="215" data-end="218">and</span> <span class="story-word" data-word="talk" data-start="219" data-end="223">talk</span> <span class="story-word" data-word="about" data-start="224" data-end="229">about</span> <span class="story-word" data-word="our" data-start="230" data-end="233">our</span> <span class="story-word" data-word="day" data-start="234" data-end="237">day</span>.</article>
+            </div>
+
+            <!-- Target Words Section -->
+            <div class="section-card target-words-card">
+              <div class="section-card-header">
+                <div class="section-title-group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon text-orange"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <h3>الكلمات المفتاحية المستهدفة</h3>
+                </div>
+                <span class="helper-badge">كلمات أساسية</span>
+              </div>
+              <p class="section-desc">أتقن هذه الكلمات الأساسية من قصة اليوم لبناء محفظة المفردات الخاصة بك.</p>
+              <div class="target-words-grid" id="target-words-container"><div class="word-badge-card">
+      <div class="word-info">
+        <span class="word-eng-text">hello</span>
+        <span class="word-arb-text">مرحباً</span>
+      </div>
+      <button class="save-word-badge-btn " data-word="hello" data-translation="مرحباً" title="حفظ إلى محفظة المفردات">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      </button>
+    </div><div class="word-badge-card">
+      <div class="word-info">
+        <span class="word-eng-text">friend</span>
+        <span class="word-arb-text">صديق</span>
+      </div>
+      <button class="save-word-badge-btn " data-word="friend" data-translation="صديق" title="حفظ إلى محفظة المفردات">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      </button>
+    </div><div class="word-badge-card">
+      <div class="word-info">
+        <span class="word-eng-text">welcome</span>
+        <span class="word-arb-text">أهلاً وسهلاً / مرحباً</span>
+      </div>
+      <button class="save-word-badge-btn " data-word="welcome" data-translation="أهلاً وسهلاً / مرحباً" title="حفظ إلى محفظة المفردات">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      </button>
+    </div><div class="word-badge-card">
+      <div class="word-info">
+        <span class="word-eng-text">happy</span>
+        <span class="word-arb-text">سعيد</span>
+      </div>
+      <button class="save-word-badge-btn " data-word="happy" data-translation="سعيد" title="حفظ إلى محفظة المفردات">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      </button>
+    </div></div>
+            </div>
+
+            <!-- Interactive Quiz Section -->
+            <div class="section-card quiz-card" id="quiz-section-block">
+              <div class="section-card-header">
+                <div class="section-title-group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon text-blue"><path d="m9 12 2 2 4-4"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                  <h3>اختبار الفهم والاستيعاب</h3>
+                </div>
+                <span class="helper-badge text-blue">اختبار سريع</span>
+              </div>
+              <p class="section-desc">اختبر فهمك للقصة من خلال الإجابة على الأسئلة التالية.</p>
+              
+              <div class="quiz-questions-wrapper" id="quiz-questions-container"><div class="quiz-question-item">
+      <div class="quiz-q-header">
+        <span class="quiz-q-badge">السؤال 1 من 3</span>
+      </div>
+      <p class="quiz-q-text">Where does Sami meet his new friend?</p>
+      <div class="quiz-options-grid">
+        
+        <button class="quiz-option quiz-option-btn" data-qidx="0" data-optidx="0">
+          <div class="option-content">
+            <span class="option-prefix">A</span>
+            <span class="option-text">At home</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+        <button class="quiz-option quiz-option-btn" data-qidx="0" data-optidx="1">
+          <div class="option-content">
+            <span class="option-prefix">B</span>
+            <span class="option-text">At school</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+        <button class="quiz-option quiz-option-btn" data-qidx="0" data-optidx="2">
+          <div class="option-content">
+            <span class="option-prefix">C</span>
+            <span class="option-text">At the park</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+      </div>
+    </div><div class="quiz-question-item">
+      <div class="quiz-q-header">
+        <span class="quiz-q-badge">السؤال 2 من 3</span>
+      </div>
+      <p class="quiz-q-text">What is the name of Sami's new friend?</p>
+      <div class="quiz-options-grid">
+        
+        <button class="quiz-option quiz-option-btn" data-qidx="1" data-optidx="0">
+          <div class="option-content">
+            <span class="option-prefix">A</span>
+            <span class="option-text">Adam</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+        <button class="quiz-option quiz-option-btn" data-qidx="1" data-optidx="1">
+          <div class="option-content">
+            <span class="option-prefix">B</span>
+            <span class="option-text">Ali</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+        <button class="quiz-option quiz-option-btn" data-qidx="1" data-optidx="2">
+          <div class="option-content">
+            <span class="option-prefix">C</span>
+            <span class="option-text">Omar</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+      </div>
+    </div><div class="quiz-question-item">
+      <div class="quiz-q-header">
+        <span class="quiz-q-badge">السؤال 3 من 3</span>
+      </div>
+      <p class="quiz-q-text">How do Sami and Adam feel about being friends?</p>
+      <div class="quiz-options-grid">
+        
+        <button class="quiz-option quiz-option-btn" data-qidx="2" data-optidx="0">
+          <div class="option-content">
+            <span class="option-prefix">A</span>
+            <span class="option-text">Very happy</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+        <button class="quiz-option quiz-option-btn" data-qidx="2" data-optidx="1">
+          <div class="option-content">
+            <span class="option-prefix">B</span>
+            <span class="option-text">Sad</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+        <button class="quiz-option quiz-option-btn" data-qidx="2" data-optidx="2">
+          <div class="option-content">
+            <span class="option-prefix">C</span>
+            <span class="option-text">Angry</span>
+          </div>
+          <span class="option-status-icon"></span>
+        </button>
+      
+      </div>
+    </div></div>
+            </div>
+
+            <!-- Progress / Completion Footer Actions -->
+            <div class="reader-footer-actions">
+              <button class="btn-primary" id="btn-complete-day">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>تحديد اليوم كمكتمل</span>
+              </button>
+              <button class="btn-success hidden" id="btn-next-day">
+                <span>الانتقال إلى اليوم التالي</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+
+          </section>
+
+        </div>
+      </div>
+
+      <!-- Vocabulary Wallet Panel View (Saved Words list) -->
+      <div class="workspace-panel" id="panel-wallet">
+        <div class="wallet-layout">
+          <div class="wallet-header">
+            <div class="wallet-title-block">
+              <h1>محفظة المفردات</h1>
+              <p>قاموسك الشخصي المخصص. راجع واستمع واختبر معرفتك بالكلمات التي حفظتها أثناء قراءة القصص.</p>
+            </div>
+            <div class="wallet-stats">
+              <div class="wallet-stat-card">
+                <span class="label">إجمالي الكلمات المحفوظة</span>
+                <span class="value" id="wallet-total-count">0</span>
+              </div>
+              <button class="action-btn-danger" id="btn-clear-wallet">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                <span>إعادة ضبط المحفظة</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Empty Wallet State -->
+          <div class="empty-wallet-state" id="empty-wallet-view">
+            <div class="empty-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10M6 10h10M6 14h10"></path></svg>
+            </div>
+            <h3>محفظتك فارغة حالياً</h3>
+            <p>انقر على الكلمات أثناء قراءة القصص، أو اضغط على نجمة الحفظ بجانب أي كلمة مستهدفة لبناء قاموسك الشخصي.</p>
+            <button class="btn-primary" id="btn-wallet-go-reading">ابدأ القراءة الآن</button>
+          </div>
+
+          <!-- Wallet Grid View -->
+          <div class="wallet-container hidden" id="wallet-items-grid-view">
+            <div class="wallet-search-bar">
+              <div class="search-input-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+                <input type="text" id="wallet-search" placeholder="ابحث عن كلمة محفوظة...">
+              </div>
+              <div class="filter-controls">
+                <button class="filter-chip active" data-filter="all">جميع الأيام</button>
+                <button class="filter-chip" data-filter="saved">محفوظة يدوياً</button>
+                <button class="filter-chip" data-filter="target">كلمات مستهدفة</button>
+              </div>
+            </div>
+
+            <!-- Saved Words List -->
+            <div class="saved-words-list-grid" id="saved-words-container">
+      <div style="grid-column: 1 / -1; text-align: center; padding: 48px 12px; color: var(--color-text-muted);">
+        <p>لم يتم العثور على أي كلمات تطابق معايير البحث أو التصفية الحالية.</p>
+      </div>
+    </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievements & Gamification Workspace Panel -->
+      <div class="workspace-panel" id="panel-achievements">
+        <div class="achievements-layout">
+          
+          <!-- Level Hero Card -->
+          <div class="level-hero-card">
+            <div class="level-hero-content">
+              <div class="level-avatar" id="achieve-avatar">🌱</div>
+              <div class="level-info">
+                <div class="level-badge-tag" id="achieve-level-tag">المستوى 1</div>
+                <h1 id="achieve-level-title">مبتدئ القراءة</h1>
+                <p id="achieve-level-sub">واصل القراءة واجتياز الاختبارات لكسب نقاط XP والارتقاء بالمستوى!</p>
+                <div class="xp-progress-block">
+                  <div class="xp-labels">
+                    <span>التقدم للمستوى التالي:</span>
+                    <span id="achieve-xp-ratio">20 / 150 XP</span>
+                  </div>
+                  <div class="xp-bar-outer">
+                    <div class="xp-bar-fill" id="achieve-xp-fill" style="width: 13%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Stats Grid -->
+          <div class="achieve-stats-grid">
+            <div class="achieve-stat-card">
+              <div class="stat-icon-box yellow">⭐</div>
+              <div class="stat-val-group">
+                <span class="stat-num" id="achieve-stat-xp">20</span>
+                <span class="stat-lbl">إجمالي نقاط XP</span>
+              </div>
+            </div>
+            <div class="achieve-stat-card">
+              <div class="stat-icon-box orange">🔥</div>
+              <div class="stat-val-group">
+                <span class="stat-num" id="achieve-stat-streak">1</span>
+                <span class="stat-lbl">سلسلة الأيام</span>
+              </div>
+            </div>
+            <div class="achieve-stat-card">
+              <div class="stat-icon-box blue">📚</div>
+              <div class="stat-val-group">
+                <span class="stat-num" id="achieve-stat-words">0</span>
+                <span class="stat-lbl">كلمات المحفظة</span>
+              </div>
+            </div>
+            <div class="achieve-stat-card">
+              <div class="stat-icon-box green">🏆</div>
+              <div class="stat-val-group">
+                <span class="stat-num" id="achieve-stat-days">0/30</span>
+                <span class="stat-lbl">أيام مكتملة</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Badges Section Header -->
+          <div class="badges-section-header">
+            <h2>أوسمة ودروع الإنجاز (Achievements)</h2>
+            <p>أكمل المهام اليومية، احفظ الكلمات، واجتز الاختبارات لفتح جميع الأوسمة!</p>
+          </div>
+
+          <!-- Badges Grid -->
+          <div class="badges-grid" id="badges-container"><div class="badge-card locked">
+      <span class="badge-status-tag">مغلق 🔒</span>
+      <div class="badge-card-icon">🚀</div>
+      <div class="badge-card-title">الخطوة الأولى 🚀</div>
+      <div class="badge-card-desc">إكمال اليوم الأول من تحدي القراءة</div>
+    </div><div class="badge-card locked">
+      <span class="badge-status-tag">مغلق 🔒</span>
+      <div class="badge-card-icon">🔥</div>
+      <div class="badge-card-title">شعلة الإصرار 🔥</div>
+      <div class="badge-card-desc">الوصول إلى 3 أيام متتالية من القراءة</div>
+    </div><div class="badge-card locked">
+      <span class="badge-status-tag">مغلق 🔒</span>
+      <div class="badge-card-icon">⚡</div>
+      <div class="badge-card-title">بطل الالتزام ⚡</div>
+      <div class="badge-card-desc">الوصول إلى 7 أيام متتالية من القراءة</div>
+    </div><div class="badge-card locked">
+      <span class="badge-status-tag">مغلق 🔒</span>
+      <div class="badge-card-icon">🧠</div>
+      <div class="badge-card-title">علامة كاملة 🧠</div>
+      <div class="badge-card-desc">إجابة جميع أسئلة الاختبار بشكل صحيح</div>
+    </div><div class="badge-card locked">
+      <span class="badge-status-tag">مغلق 🔒</span>
+      <div class="badge-card-icon">📚</div>
+      <div class="badge-card-title">كنز الكلمات 📚</div>
+      <div class="badge-card-desc">حفظ 10 كلمات في محفظة المفردات</div>
+    </div><div class="badge-card locked">
+      <span class="badge-status-tag">مغلق 🔒</span>
+      <div class="badge-card-icon">🎧</div>
+      <div class="badge-card-title">مستمع ماهر 🎧</div>
+      <div class="badge-card-desc">الاستماع لقصة اليوم بالنطق الصوتي</div>
+    </div><div class="badge-card locked">
+      <span class="badge-status-tag">مغلق 🔒</span>
+      <div class="badge-card-icon">🏆</div>
+      <div class="badge-card-title">نصف المشوار 🏆</div>
+      <div class="badge-card-desc">إكمال 15 يوماً من منهج التحدي</div>
+    </div><div class="badge-card locked">
+      <span class="badge-status-tag">مغلق 🔒</span>
+      <div class="badge-card-icon">👑</div>
+      <div class="badge-card-title">أسطورة إتقان 👑</div>
+      <div class="badge-card-desc">إكمال جميع الـ 30 يوماً بالكامل!</div>
+    </div></div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Floating Toast Notifications Container -->
+    <div class="toast-notifications-container" id="toast-container"></div>
+
+    <!-- Interactive Pop-up Dictionary Tooltip (Absolute overlay positioned by script.js) -->
+    <div class="dict-tooltip hidden" id="dict-tooltip">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-body">
+        <div class="tooltip-header">
+          <span class="tooltip-word" id="tooltip-eng">wakes up</span>
+          <button class="tooltip-audio-btn" id="tooltip-audio" title="الاستماع للكلمة">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          </button>
+        </div>
+        <div class="tooltip-translation-block">
+          <div class="tooltip-translation-meta">
+            <span class="translation-label">الترجمة بالعربية:</span>
+            <span class="tooltip-pos-tag" id="tooltip-pos">noun / اسم</span>
+          </div>
+          <span class="tooltip-arabic" id="tooltip-arb">يستيقظ</span>
+        </div>
+        <div class="tooltip-footer">
+          <button class="tooltip-btn-save" id="tooltip-save-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span id="tooltip-save-text">حفظ الكلمة</span>
+          </button>
+          <button class="tooltip-btn-close" id="tooltip-close-btn">إغلاق</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Celebration/Milestone Overlay Modal -->
+    <div class="celebration-overlay hidden" id="celebration-modal">
+      <canvas id="confetti-canvas" class="confetti-canvas" width="0" height="0"></canvas>
+      <div class="celebration-card">
+        <div class="sparkle-layer">✨</div>
+        <div class="celebration-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="trophy-icon"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path><path d="M12 2a6 6 0 0 1 6 6v1H6V8a6 6 0 0 1 6-6z"></path></svg>
+        </div>
+        <h2 id="celebration-title">أحسنت! أتممت اليوم بنجاح</h2>
+        <p id="celebration-message">قراءة ممتازة! لقد فتحت اليوم التالي من التحدي وتم توسيع محفظة مفرداتك.</p>
+
+        <!-- Gamified Rewards Banner inside modal -->
+        <div class="modal-rewards-row" id="modal-rewards-row">
+          <div class="reward-pill xp-pill">+100 XP ⭐</div>
+          <div class="reward-pill streak-pill">+1 يوم 🏆</div>
+        </div>
+
+        <div class="celebration-stats">
+          <div class="stat-bubble">
+            <span class="num" id="stat-completed-days">1/30</span>
+            <span class="lbl">أيام مكتملة</span>
+          </div>
+          <div class="stat-bubble">
+            <span class="num" id="stat-streak-days">1</span>
+            <span class="lbl">أيام متتالية</span>
+          </div>
+        </div>
+        <button class="btn-primary" id="btn-celebration-continue">متابعة التحدي</button>
+      </div>
+    </div>
+
+    <!-- Reset Confirmation Modal -->
+    <div class="celebration-overlay hidden" id="reset-confirm-modal">
+      <div class="celebration-card reset-card">
+        <div class="celebration-icon-wrapper reset-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-warning"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+        <h2 id="reset-modal-title">إعادة بدء الدورة</h2>
+        <p id="reset-modal-desc">هل أنت متأكد من رغبتك في إعادة بدء الدورة؟<br>سيتم مسح جميع الإنجازات والكلمات المحفوظة ونقاط الخبرة وتتبع الأيام والبدء من اليوم الأول.</p>
+        <div class="reset-modal-actions">
+          <button class="btn-danger" id="btn-confirm-reset">نعم، أعد البدء</button>
+          <button class="btn-secondary" id="btn-cancel-reset">إلغاء</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Distraction-Free Focus Mode Overlay -->
+    <div class="focus-overlay hidden" id="focus-mode-overlay">
+      <div class="focus-container theme-sepia" id="focus-container">
+        
+        <!-- Top Control Header Bar -->
+        <header class="focus-header">
+          <div class="focus-title-group">
+            <span class="focus-day-tag" id="focus-day-tag">MISSION 01</span>
+            <h2 class="focus-story-title" id="focus-story-title">Meeting a New Friend (التعارف والصداقة)</h2>
+          </div>
+
+          <div class="focus-actions-bar">
+            <!-- Themes: Sepia, Dark, Light, Detective -->
+            <div class="focus-control-group" title="اختر المظهر المريح للعين">
+              <span class="ctrl-label">المظهر:</span>
+              <button class="focus-chip active" data-focus-theme="sepia">☀️ دافئ</button>
+              <button class="focus-chip" data-focus-theme="dark">🌙 داكن</button>
+              <button class="focus-chip" data-focus-theme="light">📄 أبيض</button>
+              <button class="focus-chip" data-focus-theme="detective" style="display: none;">🕵️ المحقق</button>
+            </div>
+
+            <!-- Font Sizes -->
+            <div class="focus-control-group" title="حجم خط النص">
+              <span class="ctrl-label">الخط:</span>
+              <button class="focus-chip" data-focus-size="small">A-</button>
+              <button class="focus-chip active" data-focus-size="medium">A</button>
+              <button class="focus-chip" data-focus-size="large">A+</button>
+            </div>
+
+            <!-- Fullscreen Display Toggle -->
+            <div class="focus-control-group" title="تبديل ملء الشاشة الكامل">
+              <button class="focus-chip-btn" id="focus-fullscreen-btn" title="تفعيل نمط ملء الشاشة الكامل"><span>🖥️</span><span class="fs-text">ملء الشاشة</span></button>
+            </div>
+
+            <!-- Close Focus Mode -->
+            <button class="focus-close-btn" id="focus-close-btn" title="إغلاق وضع التركيز (Esc)">
+              <span>✕ إغلاق</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Focus Content Body Scrollable Area -->
+        <main class="focus-body">
+          
+          <!-- Story Target Goals Summary Bar -->
+          <div class="focus-goals-card">
+            <div class="focus-goals-header">
+              <div class="goals-title"><span class="goals-icon">🎯</span><span>أهداف القصة والكلمات المفتاحية اليومية</span></div>
+              <div class="goals-count" id="focus-words-count-badge">4 كلمات مستهدفة</div>
+            </div>
+            
+            <!-- Target Words Chips in Focus Mode -->
+            <div class="focus-target-words-grid" id="focus-target-words-grid">
+          <div class="focus-target-chip">
+            <span class="eng">hello</span>
+            <span class="arb">مرحباً</span>
+            <button class="speak-btn" onclick="speakWord(&#39;hello&#39;)" title="استمع لنطق الكلمة">🔊</button>
+            <button class="save-word-badge-btn " data-focus-save="hello" data-focus-trans="مرحباً" title="حفظ إلى محفظة المفردات">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </button>
+          </div>
+        
+          <div class="focus-target-chip">
+            <span class="eng">friend</span>
+            <span class="arb">صديق</span>
+            <button class="speak-btn" onclick="speakWord(&#39;friend&#39;)" title="استمع لنطق الكلمة">🔊</button>
+            <button class="save-word-badge-btn " data-focus-save="friend" data-focus-trans="صديق" title="حفظ إلى محفظة المفردات">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </button>
+          </div>
+        
+          <div class="focus-target-chip">
+            <span class="eng">welcome</span>
+            <span class="arb">أهلاً وسهلاً / مرحباً</span>
+            <button class="speak-btn" onclick="speakWord(&#39;welcome&#39;)" title="استمع لنطق الكلمة">🔊</button>
+            <button class="save-word-badge-btn " data-focus-save="welcome" data-focus-trans="أهلاً وسهلاً / مرحباً" title="حفظ إلى محفظة المفردات">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </button>
+          </div>
+        
+          <div class="focus-target-chip">
+            <span class="eng">happy</span>
+            <span class="arb">سعيد</span>
+            <button class="speak-btn" onclick="speakWord(&#39;happy&#39;)" title="استمع لنطق الكلمة">🔊</button>
+            <button class="save-word-badge-btn " data-focus-save="happy" data-focus-trans="سعيد" title="حفظ إلى محفظة المفردات">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </button>
+          </div>
+        </div>
+          </div>
+
+          <!-- Audio Player Toolbar inside Focus Mode -->
+          <div class="focus-audio-bar">
+            <button class="focus-audio-play-btn" id="focus-audio-play">
+              <span class="play-icon">🗣️</span>
+              <span id="focus-audio-play-text">الاستماع الصوتي للقصة</span>
+            </button>
+            
+            <div class="focus-speed-group">
+              <span class="speed-lbl">سرعة الصوت:</span>
+              <button class="focus-speed-chip" data-focus-speed="0.5">0.5x</button>
+              <button class="focus-speed-chip active" data-focus-speed="0.75">0.75x</button>
+              <button class="focus-speed-chip" data-focus-speed="1.0">1.0x</button>
+            </div>
+
+            <div class="focus-wave-anim" id="focus-wave-anim">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+
+          <!-- Main Distraction-Free Story Text Card -->
+          <article class="focus-story-box text-medium" id="focus-story-box" style="--flashlight-x: 50%; --flashlight-y: 50%;"><span class="story-word" data-word="hello" data-start="0" data-end="5">Hello</span>! <span class="story-word" data-word="my" data-start="7" data-end="9">My</span> <span class="story-word" data-word="name" data-start="10" data-end="14">name</span> <span class="story-word" data-word="is" data-start="15" data-end="17">is</span> <span class="story-word" data-word="sami" data-start="18" data-end="22">Sami</span>. <span class="story-word" data-word="i" data-start="24" data-end="25">I</span> <span class="story-word" data-word="am" data-start="26" data-end="28">am</span> <span class="story-word" data-word="a" data-start="29" data-end="30">a</span> <span class="story-word" data-word="student" data-start="31" data-end="38">student</span>. <span class="story-word" data-word="today" data-start="40" data-end="45">Today</span>, <span class="story-word" data-word="i" data-start="47" data-end="48">I</span> <span class="story-word" data-word="meet" data-start="49" data-end="53">meet</span> <span class="story-word" data-word="a" data-start="54" data-end="55">a</span> <span class="story-word" data-word="new" data-start="56" data-end="59">new</span> <span class="story-word" data-word="friend" data-start="60" data-end="66">friend</span> <span class="story-word" data-word="at" data-start="67" data-end="69">at</span> <span class="story-word" data-word="school" data-start="70" data-end="76">school</span>. <span class="story-word" data-word="his" data-start="78" data-end="81">His</span> <span class="story-word" data-word="name" data-start="82" data-end="86">name</span> <span class="story-word" data-word="is" data-start="87" data-end="89">is</span> <span class="story-word" data-word="adam" data-start="90" data-end="94">Adam</span>. <span class="story-word" data-word="he" data-start="96" data-end="98">He</span> <span class="story-word" data-word="says" data-start="99" data-end="103">says</span>, '<span class="story-word" data-word="hi" data-start="106" data-end="108">Hi</span> <span class="story-word" data-word="sami" data-start="109" data-end="113">Sami</span>, <span class="story-word" data-word="nice" data-start="115" data-end="119">nice</span> <span class="story-word" data-word="to" data-start="120" data-end="122">to</span> <span class="story-word" data-word="meet" data-start="123" data-end="127">meet</span> <span class="story-word" data-word="you" data-start="128" data-end="131">you</span>!' <span class="story-word" data-word="i" data-start="134" data-end="135">I</span> <span class="story-word" data-word="say" data-start="136" data-end="139">say</span>, '<span class="story-word" data-word="welcome" data-start="142" data-end="149">Welcome</span> <span class="story-word" data-word="to" data-start="150" data-end="152">to</span> <span class="story-word" data-word="our" data-start="153" data-end="156">our</span> <span class="story-word" data-word="class" data-start="157" data-end="162">class</span>!' <span class="story-word" data-word="we" data-start="165" data-end="167">We</span> <span class="story-word" data-word="are" data-start="168" data-end="171">are</span> <span class="story-word" data-word="very" data-start="172" data-end="176">very</span> <span class="story-word" data-word="happy" data-start="177" data-end="182">happy</span> <span class="story-word" data-word="to" data-start="183" data-end="185">to</span> <span class="story-word" data-word="be" data-start="186" data-end="188">be</span> <span class="story-word" data-word="friends" data-start="189" data-end="196">friends</span>. <span class="story-word" data-word="we" data-start="198" data-end="200">We</span> <span class="story-word" data-word="walk" data-start="201" data-end="205">walk</span> <span class="story-word" data-word="together" data-start="206" data-end="214">together</span> <span class="story-word" data-word="and" data-start="215" data-end="218">and</span> <span class="story-word" data-word="talk" data-start="219" data-end="223">talk</span> <span class="story-word" data-word="about" data-start="224" data-end="229">about</span> <span class="story-word" data-word="our" data-start="230" data-end="233">our</span> <span class="story-word" data-word="day" data-start="234" data-end="237">day</span>.</article>
+
+          <!-- Bottom Tip Footer -->
+          <footer class="focus-footer">
+            💡 انقر على أي كلمة داخل النص لقراءة ترجمتها وحفظها في محفظة المفردات.
+          </footer>
+        </main>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="./30-Day English Reading Challenge _ إتقان English_files/curriculum.js"></script>
+  <script src="./30-Day English Reading Challenge _ إتقان English_files/script.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
