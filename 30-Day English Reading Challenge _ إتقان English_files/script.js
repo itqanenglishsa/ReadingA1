@@ -757,7 +757,7 @@ function loadActiveDayContent() {
   // Update badge and basic texts
   activeDayBadge.innerText = `MISSION ${currentDayData.day.toString().padStart(2, '0')}`;
   activeStoryTitle.innerText = currentDayData.title;
-  difficultyTag.innerText = currentDayData.difficulty;
+  if (difficultyTag) difficultyTag.innerText = currentDayData.difficulty;
   
   const wordCount = currentDayData.story.split(/\s+/).length;
   wordCountBadge.innerText = `${wordCount} كلمة`;
@@ -4466,6 +4466,7 @@ function playFocusAudio() {
 
   synth.speak(utt);
 }
+
 
 /* ==========================================================================
    Trigger App Lifecycle Initialization
